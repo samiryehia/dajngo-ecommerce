@@ -116,3 +116,16 @@ class OrderDetail(models.Model):
         unique_together = (('product', 'order'),)
         verbose_name = 'Order Detail'
         verbose_name_plural = 'Order Details'
+
+class LoggingRecord(models.Model):
+    """
+    Model to store logging records.
+    """
+    user = models.ForeignKey(Customer, on_delete=models.SET_NULL, null=True, blank=True)
+    timestamp = models.DateTimeField(auto_now_add=True)
+    method = models.CharField(max_length=10)
+    path = models.CharField(max_length=255, null=True)
+    status_code = models.IntegerField(null=True)
+
+    def __str__(self):
+        return f"{self.user} - {self.method} {self.path} - {self.status_code}"

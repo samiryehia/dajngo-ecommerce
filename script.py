@@ -62,7 +62,6 @@ most_expensive_product = OrderDetail.objects.order_by('-product__price').first()
 completed_orders = Order.objects.filter(complete=True).aggregate(total_completed=Count('id'))
 
 
-
 # Searches
 laptops = Product.objects.filter(name__icontains='laptop')
 customer_orders = Order.objects.filter(customer__email='example@example.com')
