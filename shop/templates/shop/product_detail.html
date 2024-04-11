@@ -5,8 +5,17 @@
 </head>
 <body>
     <h1>{{ product.name }}</h1>
+    <img src="" alt="{{ product.name }}" style="max-width: 300px;"/>
     <p>{{ product.description }}</p>
     <p>Price: ${{ product.price }}</p>
     <p>Available: {{ product.stock }}</p>
+    {% if product.stock > 0 %}
+    <form action="{% url 'add_to_cart' product.id %}" method="post">
+        {% csrf_token %}
+        <button type="submit">Add to Cart</button>
+    </form>
+    {% else %}
+    <p>This product is currently out of stock.</p>
+    {% endif %}
 </body>
 </html>

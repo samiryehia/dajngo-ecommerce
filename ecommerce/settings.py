@@ -34,7 +34,7 @@ INSTALLED_APPS = [
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
-    "django.contrib.sessions",
+    "django.contrib.sessions", #In order to change Session Engine, change this app
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "shop.apps.ShopConfig"
@@ -49,7 +49,7 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
-    "shop.middleware.LoggingMiddleware",
+    #"shop.middleware.LoggingMiddleware",
 ]
 
 ROOT_URLCONF = "ecommerce.urls"
@@ -87,8 +87,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'ecommerce',
-        'USER': '',
-        'PASSWORD': '',
+        'USER': 'postgres',
+        'PASSWORD': 'root',
         'HOST': 'localhost',  # Set to empty string for localhost.
         'PORT': '5432',  # Default PostgreSQL port
     }
